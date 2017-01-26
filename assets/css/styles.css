@@ -1,0 +1,135 @@
+/**
+ * Created by Nolwenn on 19/01/2017.
+ */
+
+#viewport {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+#viewport .player {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.player {
+    width: 180px;
+    height: 200px;
+    background: url(http://mavencube.com/lab/Game/images/sprite-image/bird-sprite.png);
+    position: absolute;
+    animation: moving .5s steps(5)infinite;
+    transition: transform 200ms;
+
+}
+@keyframes moving {
+    0% {
+        background-position: 0 0px;
+    }
+    100% {
+        background-position: -908px 0px;
+    }
+}
+
+.player.left {
+    animation: moving .5s steps(5) infinite;
+    background-position-y: 0;
+}
+
+.player.right {
+    animation: moving .5s steps(5) infinite;
+    background-position-y: -32px;
+}
+
+.player.top {
+    animation: moving .5s steps(5) infinite;
+    background-position-y: -64px;
+}
+
+.player.bottom {
+    animation: moving .5s steps(5) infinite;
+    background-position-y: -96px;
+}
+
+/* MAP */
+#map {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 3200px;
+    height: 3200px;
+    transition: all .2s ease;
+    background-image: url(http://blog.teamtreehouse.com/wp-content/uploads/2013/08/multiplane_landscape.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+#map:after {
+    clear: both;
+    display: table;
+    content: '';
+}
+
+#map > div {
+    float: left;
+}
+
+#map > div:nth-child(100n) {
+    clear: right;
+}
+
+/* ANIMATION SNOW */
+
+.snow:before {
+    content: '';
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAMAAAD8CC+4AAAAflBMVEX///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+yfIzaAAAAKnRSTlMAAgkMDQ4PERITFRlISVFUWVpgYmVobW5vc3Z3eXx9goSKjpWXoaOqrLIxv86ZAAACaElEQVR4Ae3dbW7iBhRA0WdcHJqCwRRDCsWvTT8m3v8GR7ADpPkx1jtnH1c3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYLHa9dQ3sVhvv359NPEScjrkORZr/vpz/idewuqamaexj2X65b95nv/+/IgX0O3zKZbp/Y/5KXjBlA9DF8v0NT/c34MX7C7HzLy1sUynf/+a5/n/t+AlYw73bGKpPuf7t7kJXrLNTRvL9fv821v8MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0K6nvgkqyemQ56CS1TUzT2Mf1NHt8ymoY8qHoQvq2F2OmXlrg0rGHO7ZBJVsc9MGAAAAAAAAAAAAFWIcxDiIcRDjIMZBjIMYBzEOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQLue+iaoJKdDnoNKVtfMPI19UEe3z6egjikfhi6oY3c5ZuatjUoYc7hnE5WwzU0bAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIB/LP6x+Mf+xPxj8Y/FPxb/WPxjAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABo11PfRCXkdMhzVMLqmpmnsY866Pb5FHUw5cPQRR3sLsfMvLVRCWMO92yiEra5aWOxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoF1PfROVkNMhz1EJq2tmnsY+6qDb51PUwZQPQxd1sLscM/PWRiWMOdyziUrY5qaNWgAAAAAAAAAAAABAmIkwE2EmwkyEmQgzEWYizAQAAAAAAAAAAAAAgO+81Sm+KMVvegAAAABJRU5ErkJggg==);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    animation: snow 5s linear infinite;
+}
+
+@keyframes snow {
+    0% {
+        background-position: 0 0, 0 0, 0 0;
+    }
+    50% {
+        background-position: 500px 500px, 100px 200px, -100px 150px;
+    }
+    100% {
+        background-position: 500px 1000px, 200px 400px, -100px 300px;
+    }
+}
+
+.rythme {
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    margin-top:20px;
+    margin-left: 20px;
+    animation: move 5s ease infinite;
+}
+
+@keyframes move {
+    0% {
+        background-color: rgba(215, 68, 44, 0);
+        border-radius : 100px;
+
+    }
+    50% {
+        background-color: rgba(255, 205, 4, 1);
+        transform:scale(2);
+    }
+
+    100% {
+        background-color: rgba(215, 68, 44, 0);
+        border-radius : 100px;
+    }
+}
