@@ -15,57 +15,60 @@
     left: 0;
 }
 
+
+
+/* MAP */
+
+
+.row {
+    line-height: 0;
+}
+
+.lava {
+    width:64px;
+    height:64px;
+    background: url(../img/lava.jpg);
+    background-size: cover;
+    display: inline-block;
+}
+
+.rock {
+    width:64px;
+    height:64px;
+    background: url(../img/rock.jpg);
+    background-size: cover;
+    display: inline-block;
+}
+
 .player {
-    width: 180px;
-    height: 200px;
-    background: url(http://mavencube.com/lab/Game/images/sprite-image/bird-sprite.png);
+    width: 30px;
+    height: 47px;
+    background: url(../img/perso.png);
     position: absolute;
-    animation: moving .5s steps(5)infinite;
-    transition: transform 200ms;
+    animation: moving .5s steps(4)infinite;
+    transition: transform 250ms;
 
 }
 @keyframes moving {
     0% {
-        background-position: 0 0px;
+        background-position-x: 0;
     }
     100% {
-        background-position: -908px 0px;
+        background-position-x: -128px;
     }
-}
-
-.player.left {
-    animation: moving .5s steps(5) infinite;
-    background-position-y: 0;
-}
-
-.player.right {
-    animation: moving .5s steps(5) infinite;
-    background-position-y: -32px;
-}
-
-.player.top {
-    animation: moving .5s steps(5) infinite;
-    background-position-y: -64px;
-}
-
-.player.bottom {
-    animation: moving .5s steps(5) infinite;
-    background-position-y: -96px;
-}
+}}
 
 /* MAP */
 #map {
     position: relative;
     left: 0;
     top: 0;
-    width: 3200px;
-    height: 3200px;
+    width: 2048px;
+    height: 2048px;
     transition: all .2s ease;
-    background-image: url(http://blog.teamtreehouse.com/wp-content/uploads/2013/08/multiplane_landscape.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
-    width: 100%;
+    overflow: hidden;
 }
 
 #map:after {
@@ -82,7 +85,7 @@
     clear: right;
 }
 
-/* ANIMATION SNOW */
+/* ANIMATION SNOW
 
 .snow:before {
     content: '';
@@ -106,9 +109,9 @@
     100% {
         background-position: 500px 1000px, 200px 400px, -100px 300px;
     }
-}
+}*/
 
-.rythme {
+/* .rythme {
     height: 100px;
     width: 100px;
     margin: auto;
@@ -132,4 +135,4 @@
         background-color: rgba(215, 68, 44, 0);
         border-radius : 100px;
     }
-}
+} */

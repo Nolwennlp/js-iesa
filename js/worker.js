@@ -18,9 +18,8 @@ var moveRequest  = {
 
 // le tick
 
-var onMessage = function(event) {
-    console.log(event.data);
-    moveRequest = event.data
+var onmessage = function(event) {
+    moveRequest = event.data;
 };
 
 
@@ -39,4 +38,4 @@ var gameTick = function () {
 };
 
 
-self.setInterval(gameTick, 150); // le setInterval du worker car on ne peut pas faire Window.setInterval
+self.setInterval(gameTick, 32); // le setInterval du worker car on ne peut pas faire Window.setInterval
