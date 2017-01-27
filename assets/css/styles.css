@@ -41,12 +41,22 @@
 }
 
 .player {
+     width: 30px;
+     height: 47px;
+     background: url(../img/perso.png);
+     position: absolute;
+     animation: moving .5s steps(4)infinite;
+     transition: transform 150ms;
+
+ }
+
+.ennemy {
     width: 30px;
     height: 47px;
     background: url(../img/perso.png);
     position: absolute;
     animation: moving .5s steps(4)infinite;
-    transition: transform 250ms;
+    transition: transform 150ms;
 
 }
 @keyframes moving {
@@ -58,13 +68,33 @@
     }
 }
 
+    .left {
+        animation: moving .5s steps(4) infinite;
+        background-position-y: 141px;
+    }
+
+    .right {
+        animation: moving .5s steps(4) infinite;
+        background-position-y: 94px;
+    }
+
+    .top {
+        animation: moving .5s steps(4) infinite;
+        background-position-y: 47px;
+    }
+
+    .bottom {
+        animation: moving .5s steps(4) infinite;
+        background-position-y: 188px;
+    }
+
 /* MAP */
 #map {
     position: relative;
     left: 0;
     top: 0;
-    width: 1024px;
-    height: 1024px;
+    width: auto;
+    height: auto;
     transition: all .2s ease;
     background-repeat: no-repeat;
     background-size: cover;
