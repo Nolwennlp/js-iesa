@@ -8,38 +8,6 @@ $(function () {
     // le sprite du player
     var player = $('.player');
 
-    // Map
-
-    var map = [];
-    for( var i=0; i<32; i++){
-        map.push([]);
-        for ( var n=0; n<32; n++){
-            map[i].push(Math.round(Math.random()) );
-        }
-
-    }
-
-    // Display map
-
-     for ( var i=0; i<32; i++ ){
-
-         $('.map').append('<div class="row"></div>');
-         for( var j=0; j<32; j++){
-
-             switch (map[i][j]) {
-                 case 0:
-
-                        $('.row').eq( i ).append('<div class="lava"></div>');
-                        break;
-                 case 1:
-
-                     $('.row').eq( i ).append('<div class="rock"></div>');
-                     break;
-             }
-
-         }
-
-     }
 
     // event trigger pour alimenter le worker
     $("#viewport").on('keydown keyup mousemove', function (e) {
@@ -90,7 +58,26 @@ $(function () {
 
     // event trigger sur les messages du worker
     worker.onmessage = function(event) {
-        player.css('transform', 'translate(' + event.data.left + 'px,' + event.data.top + 'px)');
+
+        // Display map
+        $('.row').remove();
+        for ( var i=0; i<10; i++ ) {
+            $('.map').append('<div class="row"></div>');
+            for (var j = 0; j <10; j++) {
+                switch (event.data.map[i][j]) {
+                    case 0:
+                        $('.row').eq(i).append('<div class="lava"></div>');
+                        break;
+                    case 1:
+                        $('.row').eq(i).append('<div class="rock"></div>');
+                        break;
+                }
+
+            }
+        }
+
+
+        player.css('transform', 'translate(' + event.data.player.left + 'px,' + event.data.player.top + 'px)');
     };
 
 
