@@ -30,6 +30,8 @@ class Entity {
 //  Création du player
 
 let player = new Entity('player', 0, 0);
+let bot1 = new Entity('ennemy', 0, 0);
+let bot2 = new Entity('ennemy', 0, 0);
 
 // Demande de positionnement / déplacement
 let moveRequest  = {
@@ -40,6 +42,7 @@ let moveRequest  = {
 let currentWorld = {
     map : [],
     player : player,
+    listEnnemies : [bot1, bot2 ]
 };
 
 for( var i=0; i<10; i++){
@@ -51,6 +54,11 @@ for( var i=0; i<10; i++){
 }
 
 // ENEMIES
+
+let simulMoveRequest = {
+    top: 0,
+    left: 0
+};
 
 
 
@@ -80,12 +88,29 @@ let gameTick = function () {
 
 
     currentWorld.player.position = [nextX, nextY];
+
+    // ENNEMY
+
+    for( let i=0; i<currentWorld.listEnnemies.length; i++){
+
+        simulMoveRequest.left = Math.floor(Math.random() *3) -1;
+        simulMoveRequest.top = Math.floor(Math.random() *3) -1;
+
+        let nextX = currentWorld.listEnnemies[i].position[0] - simulMoveRequest.left;
+        let nextY = currentWorld.listEnnemies[i].position[1] - simulMoveRequest.top;
+
+        currentWorld.listEnnemies[i].position = [nextX, nextY];
+    }
+
     postMessage(currentWorld);
 
     moveRequest  = {
         top: 0,
         left:0
     };
+
+
+
 };
 
 

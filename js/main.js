@@ -59,6 +59,13 @@ $(function () {
             $('#map').append($('<div id="'+ currentWorld.player.id +'" class="'+ currentWorld.player.class +'">'));
         }
 
+        if($("#"+ currentWorld.listEnnemies[0].id).length == 0){
+            $('#map').append($('<div id="'+ currentWorld.listEnnemies[0].id +'" class="'+ currentWorld.listEnnemies[0].class +'">'));
+        }
+        if($("#"+ currentWorld.listEnnemies[1].id).length == 0){
+            $('#map').append($('<div id="'+ currentWorld.listEnnemies[1].id +'" class="'+ currentWorld.listEnnemies[1].class +'">'));
+        }
+
 
         // Display map
         $('.row').remove();
@@ -81,6 +88,9 @@ $(function () {
         $("#"+ currentWorld.player.id).removeClass('top bottom left right');
         $("#"+ currentWorld.player.id).css('transform', 'translate(' + currentWorld.player.x*32 + 'px,' + currentWorld.player.y*32 + 'px)');
         $("#"+ currentWorld.player.id).addClass(currentWorld.player.orientation);
+        $("#"+ currentWorld.listEnnemies[0].id).css('transform', 'translate(' + currentWorld.listEnnemies[0].x*32 + 'px,' + currentWorld.listEnnemies[0].y*32 + 'px)');
+        $("#"+ currentWorld.listEnnemies[1].id).css('transform', 'translate(' + currentWorld.listEnnemies[1].x*32 + 'px,' + currentWorld.listEnnemies[1].y*32 + 'px)');
+
     };
 
     worker.onerror = function(error) {
